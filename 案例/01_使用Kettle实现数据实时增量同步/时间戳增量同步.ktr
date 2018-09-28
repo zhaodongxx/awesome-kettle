@@ -437,81 +437,14 @@
   <notepads>
   </notepads>
   <connection>
-    <name>MySQL-test_kettle@192.168.2.194</name>
-    <server>192.168.2.194</server>
+    <name>MySQL-AimDB</name>
+    <server>192.168.2.201</server>
     <type>MYSQL</type>
     <access>Native</access>
     <database>test_kettle</database>
     <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ff228dc6fa8c</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
-    <attributes>
-      <attribute>
-        <code>EXTRA_OPTION_MYSQL.characterEncoding</code>
-        <attribute>utf8</attribute>
-      </attribute>
-      <attribute>
-        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
-        <attribute>500</attribute>
-      </attribute>
-      <attribute>
-        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
-        <attribute>true</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STREAM_RESULTS</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>MySQL-ueqcsd@192.168.2.201</name>
-    <server>192.168.2.201</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>ueqcsd</database>
-    <port>3306</port>
-    <username>zd</username>
-    <password>Encrypted 2be98afc830cf938baf16a077e1c3fd89</password>
+    <username>test</username>
+    <password>Encrypted </password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -543,6 +476,93 @@
       <attribute>
         <code>IS_CLUSTERED</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>Y</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>MySQL-SourceDB</name>
+    <server>192.168.2.194</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>test_kettle</database>
+    <port>3306</port>
+    <username>test</username>
+    <password>Encrypted </password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.characterEncoding</code>
+        <attribute>utf8</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.rewriteBatchedStatements </code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCompression</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
@@ -672,7 +692,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>MySQL-test_kettle@192.168.2.194</connection>
+    <connection>MySQL-AimDB</connection>
     <commit>100</commit>
     <lookup>
       <schema />
@@ -708,7 +728,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>MySQL-ueqcsd@192.168.2.201</connection>
+    <connection>MySQL-SourceDB</connection>
     <sql>SELECT
   id
 , sender
@@ -732,8 +752,8 @@ where send_time>= date_sub(str_to_date('${TIME_STAMP}','%Y-%m-%d %H:%i:%s'), int
       </output>
     </remotesteps>
     <GUI>
-      <xloc>355</xloc>
-      <yloc>265</yloc>
+      <xloc>352</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -748,7 +768,7 @@ where send_time>= date_sub(str_to_date('${TIME_STAMP}','%Y-%m-%d %H:%i:%s'), int
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>MySQL-test_kettle@192.168.2.194</connection>
+    <connection>MySQL-AimDB</connection>
     <skip_lookup>Y</skip_lookup>
     <commit>1000</commit>
     <use_batch>Y</use_batch>
@@ -857,7 +877,7 @@ where send_time>= date_sub(str_to_date('${TIME_STAMP}','%Y-%m-%d %H:%i:%s'), int
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>MySQL-test_kettle@192.168.2.194</connection>
+    <connection>MySQL-AimDB</connection>
     <sql>SELECT
   id
 , sender
@@ -945,7 +965,7 @@ where send_time>= date_sub(str_to_date('${TIME_STAMP}','%Y-%m-%d %H:%i:%s'), int
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>MySQL-test_kettle@192.168.2.194</connection>
+    <connection>MySQL-AimDB</connection>
     <schema />
     <table>im_message</table>
     <commit>1000</commit>

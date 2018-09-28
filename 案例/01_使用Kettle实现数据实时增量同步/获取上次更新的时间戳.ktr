@@ -436,18 +436,30 @@
   <notepads>
   </notepads>
   <connection>
-    <name>MySQL-test_kettle@192.168.2.194</name>
-    <server>192.168.2.194</server>
+    <name>MySQL-AimDB</name>
+    <server>192.168.2.201</server>
     <type>MYSQL</type>
     <access>Native</access>
     <database>test_kettle</database>
     <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ff228dc6fa8c</password>
+    <username>test</username>
+    <password>Encrypted </password>
     <servername />
     <data_tablespace />
     <index_tablespace />
     <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.characterEncoding</code>
+        <attribute>utf8</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -457,8 +469,16 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
         <code>IS_CLUSTERED</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
@@ -486,7 +506,7 @@
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
-        <attribute>N</attribute>
+        <attribute>Y</attribute>
       </attribute>
     </attributes>
   </connection>
@@ -508,7 +528,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>MySQL-test_kettle@192.168.2.194</connection>
+    <connection>MySQL-AimDB</connection>
     <sql>select date_format(time_stamp , '%Y-%m-%d %H:%i:%s') time_stamp from etl_temp where id='1'</sql>
     <limit>0</limit>
     <lookup />

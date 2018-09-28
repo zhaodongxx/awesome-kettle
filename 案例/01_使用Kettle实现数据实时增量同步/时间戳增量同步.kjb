@@ -18,14 +18,14 @@
     </parameter>
   </parameters>
   <connection>
-    <name>MySQL-test_kettle@192.168.2.194</name>
+    <name>MySQL-SourceDB</name>
     <server>192.168.2.194</server>
     <type>MYSQL</type>
     <access>Native</access>
     <database>test_kettle</database>
     <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ff228dc6fa8c</password>
+    <username>test</username>
+    <password>Encrypted </password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -101,14 +101,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>MySQL-ueqcsd@192.168.2.201</name>
+    <name>MySQL-AimDB</name>
     <server>192.168.2.201</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>ueqcsd</database>
+    <database>test_kettle</database>
     <port>3306</port>
-    <username>zd</username>
-    <password>Encrypted 2be98afc830cf938baf16a077e1c3fd89</password>
+    <username>test</username>
+    <password>Encrypted </password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -140,6 +140,10 @@
       <attribute>
         <code>IS_CLUSTERED</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
@@ -476,7 +480,7 @@ INSERT IGNORE INTO etl_temp (id,time_stamp) VALUES (1,'2018-05-22 00:00:00');</s
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename />
       <sendOneStatement>F</sendOneStatement>
-      <connection>MySQL-test_kettle@192.168.2.194</connection>
+      <connection>MySQL-AimDB</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -564,7 +568,7 @@ INSERT IGNORE INTO etl_temp (id,time_stamp) VALUES (1,'2018-05-22 00:00:00');</s
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename />
       <sendOneStatement>F</sendOneStatement>
-      <connection>MySQL-test_kettle@192.168.2.194</connection>
+      <connection>MySQL-AimDB</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -625,7 +629,7 @@ update etl_temp set time_stamp=@new_etl_start_time_stamp where id='1';
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename />
       <sendOneStatement>F</sendOneStatement>
-      <connection>MySQL-test_kettle@192.168.2.194</connection>
+      <connection>MySQL-AimDB</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -673,13 +677,13 @@ update etl_temp set time_stamp=@new_etl_start_time_stamp where id='1';
       <type>CHECK_DB_CONNECTIONS</type>
       <connections>
         <connection>
-          <name>MySQL-test_kettle@192.168.2.194</name>
-          <waitfor>3000</waitfor>
+          <name>MySQL-SourceDB</name>
+          <waitfor>0</waitfor>
           <waittime>millisecond</waittime>
         </connection>
         <connection>
-          <name>MySQL-ueqcsd@192.168.2.201</name>
-          <waitfor>3000</waitfor>
+          <name>MySQL-AimDB</name>
+          <waitfor>0</waitfor>
           <waittime>millisecond</waittime>
         </connection>
       </connections>
@@ -821,12 +825,33 @@ update etl_temp set time_stamp=@new_etl_start_time_stamp where id='1';
   <notepads>
     <notepad>
       <note>新增变量不能在同一个转换中使用</note>
-      <xloc>1280</xloc>
-      <yloc>48</yloc>
+      <xloc>720</xloc>
+      <yloc>64</yloc>
       <width>190</width>
       <heigth>26</heigth>
       <fontname>Microsoft YaHei UI</fontname>
       <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>邮箱密码是单独的授权码，而不是邮箱登录密码。</note>
+      <xloc>624</xloc>
+      <yloc>368</yloc>
+      <width>274</width>
+      <heigth>26</heigth>
+      <fontname />
+      <fontsize>-1</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
