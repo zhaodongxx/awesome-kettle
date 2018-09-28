@@ -13,6 +13,7 @@
 - [使用Kettle实现数据实时增量同步](./案例/01_使用Kettle实现数据实时增量同步)
 
 ## 文章
+- [使用Kettle实现数据实时增量同步](https://blog.csdn.net/dora_310/article/details/80511793)
 - [kettle下转移mongo中数据到mysql中](https://segmentfault.com/a/1190000008762560)
 
 ## 资源
